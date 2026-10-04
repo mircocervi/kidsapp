@@ -5,16 +5,25 @@
 
 const langTags: Record<string, string> = { en: "en-GB", it: "it-IT", es: "es-ES", fr: "fr-FR", de: "de-DE" };
 
+// Le voci "compatte" di iOS/macOS sono robotiche: preferiamo quelle di qualità superiore
+// (Premium/Enhanced/Siri), che l'utente può scaricare in Impostazioni → Accessibilità → Contenuto letto ad alta voce.
+function quality(v: SpeechSynthesisVoice) {
+  const n = v.name.toLowerCase();
+  if (n.includes("premium")) return 3;
+  if (n.includes("enhanced") || n.includes("migliorata") || n.includes("siri")) return 2;
+  if (n.includes("compact") || n.includes("eloquence")) return 0;
+  return 1;
+}
+
 function voiceFor(locale: string) {
-  const voices = window.speechSynthesis.getVoices();
   const tag = langTags[locale] ?? locale;
   const prefix = tag.slice(0, 2);
-  // preferiamo voci locali (localService) a quelle di rete
-  return (
-    voices.find((v) => v.lang === tag && v.localService) ??
-    voices.find((v) => v.lang.startsWith(prefix) && v.localService) ??
-    null
-  );
+  // Solo voci locali (localService): quelle di rete inviano il testo a server esterni.
+  const local = window.speechSynthesis
+    .getVoices()
+    .filter((v) => v.localService && v.lang.replace("_", "-").startsWith(prefix));
+  local.sort((a, b) => quality(b) - quality(a) || Number(b.lang === tag) - Number(a.lang === tag));
+  return local[0] ?? null;
 }
 
 export function canSpeak() {
@@ -30,8 +39,8 @@ export function speak(text: string, locale: string) {
   const u = new SpeechSynthesisUtterance(text.replace(/[\p{Extended_Pictographic}️]/gu, ""));
   u.voice = voice;
   u.lang = voice.lang;
-  u.rate = 0.95;
-  u.pitch = 1.1;
+  u.rate = 1;
+  u.pitch = 1;
   window.speechSynthesis.speak(u);
 }
 
