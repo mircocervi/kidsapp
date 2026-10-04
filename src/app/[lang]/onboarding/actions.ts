@@ -23,7 +23,7 @@ export async function acceptConsent(lang: string, form: FormData) {
   if (!ok || !isLaunchCountry(country)) redirect(`/${lang}/onboarding?error=consent`);
   const now = new Date().toISOString();
   // Scrittura con service role: consenso e PIN non sono modificabili dal client.
-  await supabaseAdmin()
+  const { error } = await supabaseAdmin()
     .from("parents")
     .update({
       consent_at: now,
@@ -33,6 +33,10 @@ export async function acceptConsent(lang: string, form: FormData) {
       locale: isLocale(lang) ? lang : "en",
     })
     .eq("id", user.id);
+  if (error) {
+    console.error("acceptConsent", error.message);
+    redirect(`/${lang}/onboarding?error=server`);
+  }
   redirect(`/${lang}/onboarding`);
 }
 
@@ -44,7 +48,11 @@ export async function createPin(lang: string, form: FormData) {
   const { data } = await admin.from("parents").select("pin_hash").eq("id", user.id).single();
   // Un PIN esistente non si sovrascrive da qui (sul dispositivo del bambino la sessione è aperta).
   if (data?.pin_hash) redirect(`/${lang}/onboarding`);
-  await admin.from("parents").update({ pin_hash: await hashPin(pin) }).eq("id", user.id);
+  const { error } = await admin.from("parents").update({ pin_hash: await hashPin(pin) }).eq("id", user.id);
+  if (error) {
+    console.error("createPin", error.message);
+    redirect(`/${lang}/onboarding?error=server`);
+  }
   await setUnlocked(user.id);
   redirect(`/${lang}/onboarding`);
 }
@@ -59,6 +67,10 @@ export async function addChild(lang: string, returnTo: string, form: FormData) {
   const { supabase, user } = await session(lang);
   const parsed = childSchema.safeParse(Object.fromEntries(form));
   if (!parsed.success) redirect(`${returnTo}${returnTo.includes("?") ? "&" : "?"}error=child`);
-  await supabase.from("children").insert({ ...parsed.data, parent_id: user.id });
+  const { error } = await supabase.from("children").insert({ ...parsed.data, parent_id: user.id });
+  if (error) {
+    console.error("addChild", error.message);
+    redirect(`${returnTo}${returnTo.includes("?") ? "&" : "?"}error=child`);
+  }
   redirect(returnTo.replace(/[?&]error=child/, ""));
 }

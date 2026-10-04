@@ -39,6 +39,10 @@ export default async function Onboarding({ params, searchParams }: PageProps<"/[
         ))}
       </div>
 
+      {error === "server" && (
+        <p className="rounded-2xl bg-danger/10 p-4 font-bold text-danger">{t.common.error}</p>
+      )}
+
       {current === "consent" && (
         <section className="card flex flex-col gap-5 p-7">
           <h1 className="font-display text-3xl font-extrabold">{t.onboarding.consentTitle}</h1>
