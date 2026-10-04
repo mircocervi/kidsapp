@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff8ee;
+  --color-paper: #ffffff;
+  --color-ink: #2b2a4c;
+  --color-ink-soft: #6b6a8a;
+  --color-line: #ece4d8;
+  --color-brand: #5b4bdb;
+  --color-brand-dark: #4436b8;
+  --color-brand-soft: #ece9ff;
+  --color-coral: #ff7a59;
+  --color-coral-dark: #e05a3a;
+  --color-sun: #ffcf4a;
+  --color-sun-dark: #e6b02a;
+  --color-mint: #2bb673;
+  --color-mint-dark: #1f9159;
+  --color-sky: #4ab3f4;
+  --color-danger: #e5484d;
+
+  --font-display: var(--font-baloo);
+  --font-sans: var(--font-nunito);
+
+  --radius-xl2: 1.25rem;
+  --radius-xl3: 1.75rem;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Su iPad/iPhone niente doppio tap per lo zoom e niente selezione accidentale nelle aree di gioco */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Margini per notch, isola dinamica e barra Home quando l'app è aperta dalla Home */
+.safe-area {
+  padding-top: max(env(safe-area-inset-top), 0.75rem);
+  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+  padding-left: max(env(safe-area-inset-left), 1rem);
+  padding-right: max(env(safe-area-inset-right), 1rem);
+}
+
+/* Pulsante "3D" morbido, leggibile anche dai più piccoli */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: transform 80ms ease, box-shadow 80ms ease, filter 120ms ease;
+}
+.btn:active {
+  transform: translateY(3px);
+}
+.btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.btn-primary {
+  background: var(--color-brand);
+  color: white;
+  box-shadow: 0 4px 0 var(--color-brand-dark);
+}
+.btn-primary:active {
+  box-shadow: 0 1px 0 var(--color-brand-dark);
+}
+.btn-coral {
+  background: var(--color-coral);
+  color: white;
+  box-shadow: 0 4px 0 var(--color-coral-dark);
+}
+.btn-coral:active {
+  box-shadow: 0 1px 0 var(--color-coral-dark);
+}
+.btn-ghost {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 3px 0 var(--color-line), inset 0 0 0 2px var(--color-line);
+}
+.btn-ghost:active {
+  box-shadow: 0 1px 0 var(--color-line), inset 0 0 0 2px var(--color-line);
+}
+
+.card {
+  background: var(--color-paper);
+  border-radius: var(--radius-xl3);
+  box-shadow: 0 4px 0 var(--color-line), 0 0 0 2px var(--color-line);
+}
+
+.field {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  background: var(--color-paper);
+  border: 2px solid var(--color-line);
+  font-size: 1.0625rem; /* ≥16px: iOS non fa zoom sul focus */
+  outline: none;
+}
+.field:focus {
+  border-color: var(--color-brand);
+}
+
+@keyframes pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop {
+  animation: pop 280ms ease-out both;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-bob {
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+.animate-shake {
+  animation: shake 240ms ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop, .animate-bob, .animate-shake { animation: none; }
+}
