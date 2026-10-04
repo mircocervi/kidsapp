@@ -122,3 +122,14 @@ We describe how we **align** with these frameworks. **We do not hold any certifi
 - Supervisory authorities: Garante per la protezione dei dati personali (Italy), ICO (UK), FDPIC (Switzerland), or the authority in your country.
 
 *Schools and organisations:* Wondimo is currently a service for families. If you are interested in classroom use, please contact us first: school use requires additional assessments. [⚠️ see ai-act.md V3]
+
+---
+
+## Friends, challenges and messages
+
+- **Only parents create friendships.** A parent generates a code for their child and hands it in person to the other parent, who enters it and picks their child. Without the approval of **both** parents, two children cannot interact.
+- **No strangers:** no user search, no friend suggestions, no public profiles, no photos. The other family only sees nickname and avatar.
+- **Game challenges:** the same questions for both, at the younger child's level. No public leaderboards, no notifications that rush children.
+- **Messages:** up to age 7 only stickers and ready-made phrases; from age 8 also short text, checked before delivery (personal data and offensive content are not delivered and the parent is alerted). No photos, files, audio or links.
+- **Both families' parents can read every message**, and children know it. Each child can pause a friendship with "I don't like it / Block": parents are alerted.
+- Messages are deleted after 90 days.

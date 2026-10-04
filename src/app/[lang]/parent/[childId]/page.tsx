@@ -5,6 +5,9 @@ import { avatarById } from "@/config/characters";
 import { getDictionary } from "@/i18n";
 import { parentArea } from "@/lib/parent-area";
 import { ChildForm } from "@/components/child-form";
+import { friendsOf } from "@/lib/friends";
+import { phraseText } from "@/config/friends";
+import { supabaseAdmin } from "@/lib/supabase/server";
 import { deleteChats, deleteChild, setChatEnabled, updateChild } from "../actions";
 
 export default async function ParentChild({ params, searchParams }: PageProps<"/[lang]/parent/[childId]">) {
@@ -26,6 +29,17 @@ export default async function ParentChild({ params, searchParams }: PageProps<"/
       .limit(300),
     supabase.from("activity_results").select("subject, correct, total").eq("child_id", childId),
   ]);
+
+  // Messaggi tra amici: il genitore vede tutto, anche ciò che il filtro ha bloccato.
+  const friends = await friendsOf(childId);
+  const { data: friendMsgs } = friends.length
+    ? await supabaseAdmin()
+        .from("friend_messages")
+        .select("id, friendship_id, from_child, kind, content, delivered, flag_category, created_at")
+        .in("friendship_id", friends.map((f) => f.friendshipId))
+        .order("created_at", { ascending: false })
+        .limit(300)
+    : { data: [] };
 
   const bySubject = Object.entries(
     (results ?? []).reduce<Record<string, { correct: number; total: number; rounds: number }>>((acc, r) => {
@@ -115,6 +129,40 @@ export default async function ParentChild({ params, searchParams }: PageProps<"/
         )}
         <p className="text-sm text-ink-soft">{t.parent.retention}</p>
       </section>
+
+      {friends.length > 0 && (
+        <section className="card flex flex-col gap-4 p-6">
+          <h2 className="font-display text-2xl font-bold">🤝 {t.parent.friends.messages}</h2>
+          {friends.map((fr) => {
+            const msgs = (friendMsgs ?? []).filter((m) => m.friendship_id === fr.friendshipId).reverse();
+            const fa = avatarById(fr.friend.avatar);
+            return (
+              <details key={fr.friendshipId} className="rounded-2xl border-2 border-line p-4" open={msgs.some((m) => !m.delivered)}>
+                <summary className="cursor-pointer font-bold">
+                  {fa.emoji} {fr.friend.nickname} · {msgs.length} 💬 {fr.status === "blocked" ? `· ${t.parent.friends.blocked}` : ""}
+                  {msgs.some((m) => !m.delivered) ? " ⚠️" : ""}
+                </summary>
+                <ul className="mt-3 flex flex-col gap-2">
+                  {msgs.map((m) => {
+                    const mine = m.from_child === childId;
+                    return (
+                      <li key={m.id} className={`rounded-2xl px-4 py-2 ${mine ? "self-end bg-brand-soft" : "bg-cream"} ${m.delivered ? "" : "ring-2 ring-coral"}`}>
+                        <span className="mr-2 text-xs text-ink-soft">
+                          {mine ? a.emoji : fa.emoji} {new Date(m.created_at).toLocaleString(lang, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                          {!m.delivered ? ` · ⚠️ ${t.parent.friends.notDelivered}` : ""}
+                          {m.flag_category ? ` · ${t.parent.alertCategories[m.flag_category]}` : ""}
+                        </span>
+                        <br />
+                        <span className={m.kind === "sticker" ? "text-3xl" : ""}>{m.kind === "phrase" ? phraseText(m.content, lang) : m.content}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </details>
+            );
+          })}
+        </section>
+      )}
 
       <section className="card flex flex-col gap-4 p-6">
         <h2 className="font-display text-2xl font-bold">✏️ {t.parent.editChild}</h2>

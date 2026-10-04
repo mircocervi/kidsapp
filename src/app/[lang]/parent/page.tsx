@@ -5,12 +5,13 @@ import { avatarById } from "@/config/characters";
 import { getDictionary } from "@/i18n";
 import { daysAgo, parentArea } from "@/lib/parent-area";
 import { PinPad } from "./pin-pad";
+import { FriendsPanel } from "./friends-panel";
 import { deleteAccount, lockParent, markAlertSeen, signOut, updateSettings } from "./actions";
 
 export default async function ParentHome({ params, searchParams }: PageProps<"/[lang]/parent">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const { saved } = (await searchParams) as { saved?: string };
+  const { saved, friends } = (await searchParams) as { saved?: string; friends?: string };
   const t = await getDictionary(lang);
   const { supabase, parent, children, unlocked } = await parentArea(lang);
 
@@ -109,6 +110,8 @@ export default async function ParentHome({ params, searchParams }: PageProps<"/[
           })}
         </div>
       </section>
+
+      <FriendsPanel lang={lang} kids={children} t={t} result={friends} />
 
       <section className="card flex flex-col gap-5 p-6">
         <h2 className="font-display text-2xl font-bold">⚙️ {t.parent.settings}</h2>

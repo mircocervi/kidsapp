@@ -1,5 +1,5 @@
 import type { GameDef, Question } from "./types";
-import { nearNumbers, pick, rand, ROUND, withOptions } from "./util";
+import { nearNumbers, pick, rand, ROUND, withOptions, random } from "./util";
 
 const things = ["🍎", "⭐", "🐟", "🎈", "🍓", "🚗", "🐞", "🌼", "🧁", "⚽"];
 
@@ -31,18 +31,18 @@ function sumQuestion(level: number): { text: string; result: number } {
   }
   if (level === 2) {
     const a = rand(1, 9), b = rand(1, 10 - a);
-    return Math.random() < 0.7 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${b}`, result: a };
+    return random() < 0.7 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${b}`, result: a };
   }
   if (level === 3) {
     const a = rand(2, 15), b = rand(1, 20 - a);
-    return Math.random() < 0.5 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${a}`, result: b };
+    return random() < 0.5 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${a}`, result: b };
   }
   if (level === 4) {
     const a = rand(10, 80), b = rand(5, 99 - a);
-    return Math.random() < 0.5 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${b}`, result: a };
+    return random() < 0.5 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${b}`, result: a };
   }
   const a = rand(100, 700), b = rand(50, 999 - a);
-  return Math.random() < 0.5 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${a}`, result: b };
+  return random() < 0.5 ? { text: `${a} + ${b}`, result: a + b } : { text: `${a + b} − ${a}`, result: b };
 }
 
 export const sums: GameDef = {
@@ -77,7 +77,7 @@ export const times: GameDef = {
     Array.from({ length: ROUND }, (): Question => {
       const table = level === 3 ? pick([2, 5, 10]) : rand(2, 10);
       const b = rand(1, 10);
-      const divide = level >= 5 && Math.random() < 0.4;
+      const divide = level >= 5 && random() < 0.4;
       const text = divide ? `${table * b} ÷ ${table}` : `${table} × ${b}`;
       const result = divide ? b : table * b;
       return {

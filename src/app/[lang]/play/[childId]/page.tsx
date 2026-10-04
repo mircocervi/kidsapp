@@ -9,6 +9,7 @@ import { fmt } from "@/i18n/format";
 import { requireChild } from "@/lib/kid";
 import { KidGate } from "@/components/kid-gate";
 import { MascotPicker } from "./mascot-picker";
+import { friendsActivity, friendsOf, splitChallenges } from "@/lib/friends";
 
 export default async function KidHome({ params }: PageProps<"/[lang]/play/[childId]">) {
   const { lang, childId } = await params;
@@ -36,7 +37,14 @@ export default async function KidHome({ params }: PageProps<"/[lang]/play/[child
     );
   }
 
-  const { data: results } = await supabase.from("activity_results").select("correct").eq("child_id", childId);
+  const [{ data: results }, friends, activity] = await Promise.all([
+    supabase.from("activity_results").select("correct").eq("child_id", childId),
+    friendsOf(childId),
+    friendsActivity(childId),
+  ]);
+  const hasFriends = friends.some((f) => f.status === "active");
+  const friendBadge =
+    [...activity.unreadBy.values()].reduce((a, b) => a + b, 0) + splitChallenges(activity.challenges, childId).toPlay.length;
   const stars = (results ?? []).reduce((sum, r) => sum + r.correct, 0);
   const avatar = avatarById(child.avatar);
   const games = gamesForLevel(levelOf(child.grade));
@@ -67,6 +75,19 @@ export default async function KidHome({ params }: PageProps<"/[lang]/play/[child
               <span className="font-display text-3xl font-extrabold sm:text-4xl">{fmt(t.kid.chat, { mascot: mascot.name })}</span>
               <span className="text-lg opacity-80">💬</span>
             </span>
+          </Link>
+        )}
+
+        {hasFriends && (
+          <Link
+            href={`/${lang}/play/${childId}/friends`}
+            className="card relative flex items-center gap-4 bg-sun! p-5 transition active:scale-[0.98]"
+          >
+            <span className="text-6xl">🤝</span>
+            <span className="font-display text-3xl font-extrabold">{t.kid.friends.title}</span>
+            {friendBadge > 0 && (
+              <span className="ml-auto flex h-10 min-w-10 items-center justify-center rounded-full bg-coral px-3 font-display text-xl font-bold text-white">{friendBadge}</span>
+            )}
           </Link>
         )}
 

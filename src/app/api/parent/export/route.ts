@@ -9,12 +9,15 @@ export async function GET() {
   if (!(await isUnlocked(session.user.id))) return NextResponse.json({ error: "locked" }, { status: 403 });
   const { supabase, user } = session;
 
-  const [parent, children, messages, alerts, results] = await Promise.all([
+  const [parent, children, messages, alerts, results, friendships, friendMessages, challenges] = await Promise.all([
     supabase.from("parents").select("*").eq("id", user.id).single(),
     supabase.from("children").select("*"),
     supabase.from("chat_messages").select("*").order("created_at"),
     supabase.from("safety_alerts").select("*").order("created_at"),
     supabase.from("activity_results").select("*").order("created_at"),
+    supabase.from("friendships").select("id, child_a, child_b, status, created_at"),
+    supabase.from("friend_messages").select("id, friendship_id, from_child, to_child, kind, content, delivered, created_at").order("created_at"),
+    supabase.from("challenges").select("id, friendship_id, from_child, to_child, game_id, from_correct, to_correct, created_at").order("created_at"),
   ]);
 
   const payload = {
@@ -24,6 +27,9 @@ export async function GET() {
     chat_messages: messages.data,
     safety_alerts: alerts.data,
     activity_results: results.data,
+    friendships: friendships.data,
+    friend_messages: friendMessages.data,
+    challenges: challenges.data,
   };
   return new NextResponse(JSON.stringify(payload, null, 2), {
     headers: {

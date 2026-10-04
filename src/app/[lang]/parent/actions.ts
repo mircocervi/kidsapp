@@ -7,6 +7,7 @@ import { avatars } from "@/config/characters";
 import { grades } from "@/config/grades";
 import { currentParent, supabaseAdmin } from "@/lib/supabase/server";
 import { isUnlocked, isValidPin, lock, setUnlocked, verifyPin } from "@/lib/parent-gate";
+import { newInviteCode, ownsChild } from "@/lib/friends";
 
 const MAX_ATTEMPTS = 5;
 const LOCK_MINUTES = 5;
@@ -115,10 +116,14 @@ export async function setChatEnabled(lang: string, childId: string, form: FormDa
 const confirmed = (form: FormData) => ["DELETE", "ELIMINA"].includes(String(form.get("confirm") ?? "").trim().toUpperCase());
 
 export async function deleteChats(lang: string, childId: string, form: FormData) {
-  const { supabase } = await unlocked(lang);
+  const { supabase, user } = await unlocked(lang);
   if (confirmed(form)) {
     await supabase.from("chat_messages").delete().eq("child_id", childId);
     await supabase.from("safety_alerts").delete().eq("child_id", childId);
+    // Anche i messaggi che il proprio figlio ha scritto agli amici (verificato: il figlio è del genitore).
+    if (await ownsChild(user.id, childId)) {
+      await supabaseAdmin().from("friend_messages").delete().eq("from_child", childId);
+    }
   }
   redirect(`/${lang}/parent/${childId}`);
 }
@@ -138,4 +143,70 @@ export async function deleteAccount(lang: string, form: FormData) {
   await supabaseAdmin().auth.admin.deleteUser(user.id);
   await lock();
   redirect(`/${lang}`);
+}
+
+// --- Amici: la regola d'oro (approvazione di entrambi i genitori) ---------------------------
+
+export async function createInvite(lang: string, form: FormData) {
+  const { user } = await unlocked(lang);
+  const childId = String(form.get("childId") ?? "");
+  if (!(await ownsChild(user.id, childId))) redirect(`/${lang}/parent?friends=invalid#friends`);
+  const admin = supabaseAdmin();
+  // Un solo codice valido per figlio alla volta.
+  await admin.from("friend_invites").delete().eq("child_id", childId).is("used_at", null);
+  await admin.from("friend_invites").insert({ code: newInviteCode(), parent_id: user.id, child_id: childId });
+  revalidatePath(`/${lang}/parent`);
+  redirect(`/${lang}/parent#friends`);
+}
+
+export async function redeemInvite(lang: string, form: FormData) {
+  const { user } = await unlocked(lang);
+  const code = String(form.get("code") ?? "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const childId = String(form.get("childId") ?? "");
+  const back = (result: string): never => redirect(`/${lang}/parent?friends=${result}#friends`);
+  if (!(await ownsChild(user.id, childId))) back("invalid");
+
+  const admin = supabaseAdmin();
+  const { data: invite } = await admin
+    .from("friend_invites")
+    .select("id, parent_id, child_id, expires_at, used_at")
+    .eq("code", code)
+    .maybeSingle();
+  if (!invite || invite.used_at || new Date(invite.expires_at) < new Date()) back("invalid");
+  if (invite!.parent_id === user.id) back("same");
+
+  const pair = [invite!.child_id, childId];
+  const { data: existing } = await admin
+    .from("friendships")
+    .select("id, status")
+    .or(`and(child_a.eq.${pair[0]},child_b.eq.${pair[1]}),and(child_a.eq.${pair[1]},child_b.eq.${pair[0]})`)
+    .maybeSingle();
+
+  if (existing?.status === "active") back("already");
+  if (existing) {
+    // Amicizia chiusa in passato: con un nuovo codice entrambi i genitori la riattivano.
+    await admin.from("friendships").update({ status: "active", blocked_by: null }).eq("id", existing.id);
+  } else {
+    await admin.from("friendships").insert({
+      child_a: invite!.child_id,
+      parent_a: invite!.parent_id,
+      child_b: childId,
+      parent_b: user.id,
+    });
+  }
+  await admin.from("friend_invites").update({ used_at: new Date().toISOString() }).eq("id", invite!.id);
+  revalidatePath(`/${lang}/parent`);
+  back("connected");
+}
+
+export async function endFriendship(lang: string, friendshipId: string) {
+  const { user } = await unlocked(lang);
+  // Chiusa, non cancellata: entrambi i genitori possono ancora leggere i messaggi fino alla scadenza (90 giorni).
+  await supabaseAdmin()
+    .from("friendships")
+    .update({ status: "blocked", blocked_by: null })
+    .eq("id", friendshipId)
+    .or(`parent_a.eq.${user.id},parent_b.eq.${user.id}`);
+  revalidatePath(`/${lang}/parent`);
+  redirect(`/${lang}/parent#friends`);
 }

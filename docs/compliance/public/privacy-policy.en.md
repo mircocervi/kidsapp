@@ -108,3 +108,7 @@ An account can only be created by an **adult** who holds parental responsibility
 
 ## 12. Changes
 If we change anything important, we will tell you by email and in the parent area, and ask for your consent again where needed.
+
+## Friends, challenges and messages between children
+
+If two parents connect their children (invite code approved by both), we process: the friendship link, messages between the two children (stickers, ready-made phrases, short text from age 8) and challenge results. **Purpose:** letting children play and communicate safely. **Legal basis:** parental consent, given by approving each friendship. **Who sees the data:** the parents of both children; the other family only sees your child's nickname and avatar. Free text is automatically checked before delivery with the same safety tools as the chat. **Retention:** messages 90 days; challenge results 13 months. You can end a friendship and delete the messages your child wrote at any time.

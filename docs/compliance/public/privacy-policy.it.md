@@ -108,3 +108,7 @@ L'account può essere creato solo da una persona **maggiorenne** che esercita la
 
 ## 12. Modifiche
 Se cambiamo qualcosa di importante ti avvisiamo via email e nell'area genitore. Quando serve, ti chiederemo di nuovo il consenso.
+
+## Amici, sfide e messaggi tra bambini
+
+Se due genitori collegano i rispettivi figli (codice d'invito approvato da entrambi), trattiamo: il collegamento di amicizia, i messaggi tra i due bambini (sticker, frasi pronte, testo breve dagli 8 anni) e gli esiti delle sfide. **Finalità:** permettere ai bambini di giocare e comunicare in modo sicuro. **Base giuridica:** consenso del genitore, espresso approvando ciascuna amicizia. **Chi vede i dati:** i genitori di entrambi i bambini; l'altra famiglia vede solo soprannome e avatar di tuo figlio. Il testo libero viene controllato automaticamente prima della consegna con gli stessi strumenti di sicurezza della chat. **Conservazione:** messaggi 90 giorni; esiti delle sfide 13 mesi. Puoi chiudere un'amicizia e cancellare i messaggi scritti da tuo figlio in qualsiasi momento.

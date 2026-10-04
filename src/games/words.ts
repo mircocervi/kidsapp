@@ -1,6 +1,6 @@
 import type { Locale } from "@/config/app";
 import type { GameDef, Question } from "./types";
-import { pick, ROUND, shuffle, withOptions } from "./util";
+import { pick, ROUND, shuffle, withOptions, random } from "./util";
 
 // Parole illustrate da emoji. Ogni voce ha la parola nelle lingue supportate (+ es per chi studia lo spagnolo).
 const picture = [
@@ -76,7 +76,7 @@ export const vocabulary: GameDef = {
       const lang = foreign(locale);
       const word = p[lang];
       // dai livelli alti: dalla parola al disegno (più difficile, si deve leggere)
-      if (level >= 4 && Math.random() < 0.5) {
+      if (level >= 4 && random() < 0.5) {
         const opts = withOptions(p.e, picture.map((x) => x.e), 4);
         return {
           prompt: locale === "it" ? `Quale disegno è "${word}"?` : `Which picture is "${word}"?`,
@@ -152,7 +152,7 @@ export const colorsShapes: GameDef = {
   title: { en: "Colours and shapes", it: "Colori e forme" },
   generate: (_level, locale) =>
     Array.from({ length: ROUND }, (): Question => {
-      const useColor = Math.random() < 0.6;
+      const useColor = random() < 0.6;
       const pool: readonly { e: string; en: string; it: string }[] = useColor ? colors : shapes;
       const target = pick(pool);
       const opts = withOptions(target.e, pool.map((p) => p.e), 3);

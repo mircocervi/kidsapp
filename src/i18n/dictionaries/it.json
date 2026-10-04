@@ -146,7 +146,29 @@
     "rateLimited": "Wow, quante domande! Facciamo una pausa e giochiamo.",
     "timeUp": "Il tempo di oggi è finito! A domani 🌙",
     "quietHours": "Adesso è ora di riposare. A dopo! 🌙",
-    "changeBuddy": "Cambia amico"
+    "changeBuddy": "Cambia amico",
+    "friends": {
+      "title": "Amici",
+      "none": "Non hai ancora amici qui. Chiedi a mamma o papà! 💛",
+      "write": "Scrivi",
+      "challenge": "Sfida",
+      "challengedYou": "{name} ti ha sfidato a {game}!",
+      "waiting": "Aspettiamo {name}…",
+      "won": "Hai vinto! 🏆",
+      "lost": "Ha vinto {name}! Ottima partita 💪",
+      "tie": "Pareggio! 🤝",
+      "play": "Gioca",
+      "pickGame": "A che gioco sfidi {name}?",
+      "parentsSee": "I tuoi genitori e quelli di {name} possono leggere questi messaggi.",
+      "notSent": "Questo messaggio non si può inviare. 🙅",
+      "block": "Non mi piace / Blocca",
+      "blockConfirm": "Vuoi mettere in pausa l'amicizia con {name}? Mamma e papà riceveranno un avviso.",
+      "blockedInfo": "Amicizia in pausa: ne parleranno i grandi. 💛",
+      "placeholder": "Scrivi a {name}…",
+      "send": "Invia",
+      "you": "Tu",
+      "vs": "contro"
+    }
   },
   "games": {
     "correct": "Bravissimo!",
@@ -187,7 +209,8 @@
       "dangerous": "Attività pericolose",
       "hate": "Linguaggio offensivo",
       "personal_info": "Ha condiviso dati personali",
-      "other": "Contenuto non adatto"
+      "other": "Contenuto non adatto",
+      "friend_report": "Amicizia messa in pausa da un bambino"
     },
     "urgentHint": "Parlane presto con tuo figlio. Al suo messaggio è stata data una risposta sicura, già scritta, che lo invita a parlarne con te.",
     "markSeen": "Segna come visto",
@@ -212,7 +235,29 @@
     "deleteChild": "Elimina questo profilo e tutti i suoi dati",
     "deleteAccount": "Elimina il mio account e tutti i dati",
     "confirmDelete": "Non si può annullare. Scrivi ELIMINA per confermare.",
-    "retention": "Chat e avvisi si cancellano automaticamente dopo 90 giorni."
+    "retention": "Chat e avvisi si cancellano automaticamente dopo 90 giorni.",
+    "friends": {
+      "title": "Amici",
+      "intro": "Le amicizie le create solo voi genitori: generi un codice per tuo figlio e lo consegni di persona al genitore dell'amico, che lo inserisce nella sua app e sceglie il proprio figlio.",
+      "create": "Crea un codice d'invito per",
+      "createButton": "Crea codice",
+      "code": "Codice per {name}",
+      "codeHint": "Vale 48 ore e una sola volta. Dallo solo a un genitore che conosci di persona.",
+      "redeem": "Hai ricevuto un codice da un altro genitore?",
+      "redeemPlaceholder": "Codice di 8 caratteri",
+      "redeemFor": "Collega a",
+      "redeemButton": "Collega",
+      "connected": "Fatto! Ora sono amici.",
+      "invalid": "Codice non valido, scaduto o già usato.",
+      "sameFamily": "Questo codice è della tua famiglia: va dato a un altro genitore.",
+      "already": "Sono già amici.",
+      "none": "Nessun amico ancora.",
+      "remove": "Rimuovi amicizia",
+      "blocked": "In pausa: segnalata da un bambino",
+      "messages": "Messaggi tra amici",
+      "notDelivered": "non consegnato",
+      "challenges": "Sfide"
+    }
   },
   "trustPage": {
     "title": "Fiducia e sicurezza",

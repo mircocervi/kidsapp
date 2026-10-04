@@ -135,3 +135,43 @@ Riferimento: Convenzione ONU sui diritti dell'infanzia (UNCRC) e General Comment
 | Nuovo modello LLM o nuovo fornitore | Riesame di R2-R5, R8, R15 + nuovo red-teaming |
 | Lancio USA | Integrazione con `coppa.md` |
 | Vendita/uso da parte di scuole | Riesame AI Act (Annex III) + ruoli (la scuola diventa titolare?) |
+
+---
+
+## Addendum A — Amici, sfide e messaggi tra bambini (04/10/2026)
+
+Design: `docs/design/amici-sfide-messaggi.md`. Fasi approvate: amicizie approvate da entrambi i genitori, sfide nei giochi, messaggi tra amici (sticker/frasi pronte per 3-7 anni, testo moderato per 8-13). Escluse: vocali, videochiamate, foto, gruppi, sconosciuti, scuole.
+
+### Nuovi rischi
+
+| ID | Rischio | P | G | Livello | Misure | Residuo |
+|---|---|---|---|---|---|---|
+| R18 | Adulto che si finge bambino per contattare un minore (adescamento) | 2 | 4 | 8 alto | M26, M27, M28 | 2 basso |
+| R19 | Bullismo o esclusione tra pari tramite messaggi o sfide | 3 | 3 | 9 alto | M28, M29, M30, M31 | 3 basso |
+| R20 | Condivisione tra bambini di dati personali (indirizzo, telefono, scuola) | 3 | 3 | 9 alto | M28, M32 | 3 basso |
+| R21 | Esposizione dei dati di un bambino alla famiglia dell'amico oltre il necessario | 2 | 2 | 4 medio | M33 | 2 basso |
+| R22 | Pressione all'uso (competizione, attesa di risposte) e impatto sul benessere | 2 | 2 | 4 medio | M34 | 2 basso |
+| R23 | Monitoraggio dei messaggi percepito come lesivo della riservatezza dei più grandi (11-13) | 2 | 2 | 4 medio | M30 (trasparenza), M35 | 2 basso ⚠️ |
+
+### Nuove misure
+
+| ID | Misura |
+|---|---|
+| M26 | **Regola d'oro**: amicizia solo con approvazione di entrambi i genitori; codice d'invito monouso, legato a un figlio, scadenza 48 h, consegnato tra genitori |
+| M27 | Nessuna ricerca utenti, suggerimenti, profili pubblici, elenchi; i bambini non possono creare né accettare amicizie |
+| M28 | Testo libero solo da 8 anni; prima della consegna rimozione dati personali + classificatore di sicurezza; messaggio a rischio non consegnato + avviso al genitore del mittente |
+| M29 | Pulsante "Non mi piace / Blocca" per il bambino: blocca subito l'amicizia e avvisa entrambi i genitori |
+| M30 | Entrambi i genitori vedono tutti i messaggi; i bambini ne sono informati nell'interfaccia |
+| M31 | Classifiche solo tra amici e solo sulle sfide comuni; si premia l'impegno; nessuna classifica pubblica |
+| M32 | Nessun allegato: niente immagini, file, audio, link |
+| M33 | All'altra famiglia arrivano solo soprannome e avatar |
+| M34 | Nessuna notifica push, nessuna "serie" di giorni; limiti di tempo e ora di riposo valgono anche per amici e sfide |
+| M35 | Conservazione dei messaggi 90 giorni; cancellazione anticipata da parte di ciascun genitore per il proprio figlio |
+
+### Base giuridica e informativa
+Consenso del genitore (art. 6.1.a e art. 8 GDPR), raccolto per ciascuna amicizia al momento dell'approvazione. ⚠️ DA FARE: aggiornare informativa, children-notice e RoPA (nuovo trattamento "comunicazioni tra amici").
+
+### Inquadramento regolatorio da verificare
+- DSA art. 28 (protezione dei minori sulle piattaforme online): ⚠️ DA VERIFICARE se un servizio a cerchia chiusa approvata dai genitori rientra nella definizione di piattaforma online.
+- UK Online Safety Act (servizio user-to-user): ⚠️ DA VERIFICARE prima del lancio nel Regno Unito.
+- Procedura di segnalazione e gestione degli incidenti tra minori: integrare `incident-response.md`.

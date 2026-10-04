@@ -146,7 +146,29 @@
     "rateLimited": "Wow, so many questions! Let's take a break and play a game.",
     "timeUp": "Time's up for today! See you tomorrow 🌙",
     "quietHours": "It's rest time now. See you later! 🌙",
-    "changeBuddy": "Change buddy"
+    "changeBuddy": "Change buddy",
+    "friends": {
+      "title": "Friends",
+      "none": "No friends here yet. Ask mum or dad! 💛",
+      "write": "Write",
+      "challenge": "Challenge",
+      "challengedYou": "{name} challenged you to {game}!",
+      "waiting": "Waiting for {name}…",
+      "won": "You won! 🏆",
+      "lost": "{name} won! Well played 💪",
+      "tie": "It's a tie! 🤝",
+      "play": "Play",
+      "pickGame": "Which game do you challenge {name} to?",
+      "parentsSee": "Your parents and {name}'s parents can read these messages.",
+      "notSent": "This message can't be sent. 🙅",
+      "block": "I don't like it / Block",
+      "blockConfirm": "Pause the friendship with {name}? Mum and dad will get a message.",
+      "blockedInfo": "Friendship paused: the grown-ups will talk about it. 💛",
+      "placeholder": "Write to {name}…",
+      "send": "Send",
+      "you": "You",
+      "vs": "vs"
+    }
   },
   "games": {
     "correct": "Great job!",
@@ -187,7 +209,8 @@
       "dangerous": "Dangerous activity",
       "hate": "Offensive language",
       "personal_info": "Shared personal information",
-      "other": "Unsuitable content"
+      "other": "Unsuitable content",
+      "friend_report": "Friendship paused by a child"
     },
     "urgentHint": "Please talk to your child soon. Their message received a safe, pre-written answer inviting them to talk to you.",
     "markSeen": "Mark as seen",
@@ -212,7 +235,29 @@
     "deleteChild": "Delete this profile and all its data",
     "deleteAccount": "Delete my account and all data",
     "confirmDelete": "This cannot be undone. Type DELETE to confirm.",
-    "retention": "Chats and alerts are automatically deleted after 90 days."
+    "retention": "Chats and alerts are automatically deleted after 90 days.",
+    "friends": {
+      "title": "Friends",
+      "intro": "Only parents create friendships: you generate a code for your child and hand it in person to the friend's parent, who enters it in their app and picks their child.",
+      "create": "Create an invite code for",
+      "createButton": "Create code",
+      "code": "Code for {name}",
+      "codeHint": "Valid for 48 hours, single use. Only give it to a parent you know in person.",
+      "redeem": "Got a code from another parent?",
+      "redeemPlaceholder": "8-character code",
+      "redeemFor": "Connect to",
+      "redeemButton": "Connect",
+      "connected": "Done! They are now friends.",
+      "invalid": "Invalid, expired or already used code.",
+      "sameFamily": "This code belongs to your family: give it to another parent.",
+      "already": "They are already friends.",
+      "none": "No friends yet.",
+      "remove": "Remove friendship",
+      "blocked": "Paused: reported by a child",
+      "messages": "Messages between friends",
+      "notDelivered": "not delivered",
+      "challenges": "Challenges"
+    }
   },
   "trustPage": {
     "title": "Trust & Safety",

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Locale } from "@/config/app";
 import { gameById } from "@/games/registry";
+import { withSeed } from "@/games/util";
 import type { Question } from "@/games/types";
 import type { Dictionary } from "@/i18n";
 import { fmt } from "@/i18n/format";
@@ -20,12 +21,14 @@ type Props = {
   level: number;
   readAloud: boolean;
   t: Dictionary["games"];
+  challenge?: { id: string; seed: number } | null;
+  backToFriends?: string;
 };
 
-export function GamePlayer({ lang, childId, parentId, gameId, level, readAloud, t }: Props) {
+export function GamePlayer({ lang, childId, parentId, gameId, level, readAloud, t, challenge, backToFriends }: Props) {
   const game = gameById(gameId)!;
   // Componente caricato solo sul client (vedi game-loader): le domande casuali si generano subito.
-  const [questions, setQuestions] = useState<Question[]>(() => game.generate(level, lang));
+  const [questions, setQuestions] = useState<Question[]>(() => withSeed(challenge?.seed, () => game.generate(level, lang)));
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
@@ -54,6 +57,13 @@ export function GamePlayer({ lang, childId, parentId, gameId, level, readAloud, 
   async function finish(finalCorrect: number, total: number) {
     setDone(true);
     speak(t.wellDone, lang);
+    if (challenge) {
+      await fetch("/api/friends/challenges/result", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ childId, challengeId: challenge.id, correct: finalCorrect }),
+      }).catch(() => {});
+    }
     await supabaseBrowser().from("activity_results").insert({
       parent_id: parentId,
       child_id: childId,
@@ -113,7 +123,11 @@ export function GamePlayer({ lang, childId, parentId, gameId, level, readAloud, 
           <p className="font-display text-3xl">{"⭐".repeat(correct)}</p>
           <p className="text-xl text-ink-soft">{fmt(t.score, { correct, total: questions.length })}</p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button className="btn btn-coral" onClick={start}>🔁 {t.playAgain}</button>
+            {challenge ? (
+              <Link href={`/${lang}/play/${childId}/friends`} className="btn btn-coral">🤝 {backToFriends}</Link>
+            ) : (
+              <button className="btn btn-coral" onClick={start}>🔁 {t.playAgain}</button>
+            )}
             <Link href={`/${lang}/play/${childId}`} className="btn btn-ghost">🏠 {t.backHome}</Link>
           </div>
         </section>

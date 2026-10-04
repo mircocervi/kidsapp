@@ -11,3 +11,4 @@
 - Dopo modifiche allo schema: nuova migrazione in `supabase/migrations/`, poi `npx supabase migration up` e `npx supabase gen types typescript --local > src/lib/supabase/database.types.ts`.
 - Repo GitHub `mircocervi/wondimo` (ex kidsapp); cartella locale ancora `~/projects/prv/kidsapp`. GCP: progetto `wondimo`, account `mirco@mircocervi.it`.
 - Beta su invito: per invitare qualcuno `insert into public.beta_invites (email) values ('...')` (hook Supabase `before_user_created`).
+- Seconda famiglia di test locale (amici): `genitore.due@example.com`, PIN `2468`, figlia "Giulia" (2ª elementare).
