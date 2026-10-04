@@ -18,7 +18,7 @@ Wondimo è uno spazio di apprendimento per bambini dalla scuola dell'infanzia al
 | 🚫 **Niente addestramento dell'IA con i dati della tua famiglia** | I fornitori di IA lavorano in modalità "zero data retention" e non si addestrano sulle conversazioni dei bambini. |
 | 👨‍👩‍👧 **Controllo ai genitori** | Solo i genitori hanno un account. Vedono tutto e possono cancellare tutto. |
 | 🧒 **Pochissimi dati sui bambini** | Soprannome, avatar e fascia d'età. Niente data di nascita, cognome, foto, email o telefono. |
-| 🎤 **La voce non viene mai conservata** | Il parlato diventa testo e viene subito eliminato. La lettura ad alta voce avviene sul dispositivo. |
+| 🎤 **La voce non viene mai conservata** | Il parlato diventa testo e viene subito eliminato. Per la lettura ad alta voce inviamo a Google Cloud (server in UE) solo il testo da leggere — le risposte della mascotte e le frasi dei giochi, mai quello che scrive il bambino — e non lo conserviamo. |
 | 🗓️ **Chat cancellate dopo 90 giorni** | In automatico, o prima se lo decide il genitore. |
 | 🇪🇺 **Dati conservati nell'UE** | Database e server applicativi a Francoforte, Germania. [⚠️ DA VERIFICARE la regione di instradamento dell'IA] |
 

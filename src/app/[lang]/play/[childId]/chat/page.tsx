@@ -51,7 +51,7 @@ export default async function ChatPage({ params }: PageProps<"/[lang]/play/[chil
       <ChatView
         lang={lang}
         childId={childId}
-        mascot={{ name: mascot.name, emoji: mascot.emoji, color: mascot.color }}
+        mascot={{ id: mascot.id, name: mascot.name, emoji: mascot.emoji, color: mascot.color }}
         readAloud={isVoiceFirst(child.grade)}
         enabled={child.chat_enabled}
         initial={(history ?? []).map((m) => ({ id: m.id, role: m.role, content: m.content }))}

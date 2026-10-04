@@ -3,13 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { speak, stopSpeaking } from "@/lib/speech";
+import type { VoiceId } from "@/config/voices";
 
 type Msg = { id: string; role: "child" | "assistant"; content: string };
 
 type Props = {
   lang: string;
   childId: string;
-  mascot: { name: string; emoji: string; color: string };
+  mascot: { id: VoiceId; name: string; emoji: string; color: string };
   readAloud: boolean;
   enabled: boolean;
   initial: Msg[];
@@ -49,7 +50,7 @@ export function ChatView({ lang, childId, mascot, readAloud, enabled, initial, t
     }
     setMessages((m) => [...m, { id: crypto.randomUUID(), role: "assistant", content: reply }]);
     setBusy(false);
-    if (readAloud) speak(reply, lang);
+    if (readAloud) speak(reply, lang, mascot.id);
   }
 
   return (
@@ -120,7 +121,7 @@ function Bubble({ mascot, role, content, lang, listen }: { mascot: Props["mascot
       <span className="text-3xl">{mascot.emoji}</span>
       <div className="card flex flex-col gap-2 rounded-bl-lg px-5 py-3">
         <p className="text-lg whitespace-pre-wrap">{content}</p>
-        <button onClick={() => speak(content, lang)} className="w-fit text-sm font-bold text-brand">🔊 {listen}</button>
+        <button onClick={() => speak(content, lang, mascot.id)} className="w-fit text-sm font-bold text-brand">🔊 {listen}</button>
       </div>
     </div>
   );

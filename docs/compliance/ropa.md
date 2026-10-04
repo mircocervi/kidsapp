@@ -75,7 +75,7 @@
 | Destinatari | OpenRouter/Mistral (Voxtral) in ZDR |
 | Trasferimenti | Come T4 |
 | Conservazione | **Audio: mai salvato.** Esiste solo in memoria sul dispositivo e nella richiesta di trascrizione; eliminato subito dopo la trascrizione. Il testo trascritto segue T4 (90 gg) |
-| Misure | Push-to-talk (nessun ascolto continuo), indicatore visivo del microfono, permesso del browser, nessun uso della Web Speech API di Chrome (invia audio a Google). TTS solo con voci locali (`localService === true`) |
+| Misure | Push-to-talk (nessun ascolto continuo), indicatore visivo del microfono, permesso del browser, nessun uso della Web Speech API di Chrome (invia audio a Google). TTS: Google Cloud Text-to-Speech UE per il solo testo da leggere (risposte del bot, frasi dei giochi); riserva con voci locali (`localService === true`) |
 
 ### T6 — Sicurezza del bambino: rilevazione dei temi sensibili e avvisi al genitore
 | Voce | Contenuto |

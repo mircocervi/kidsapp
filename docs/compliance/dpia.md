@@ -30,7 +30,8 @@ Solo il genitore ha un account (magic link, Google, Apple; nessuna password). I 
      |  audio (push-to-talk)          |
      |                                +--TLS--> [OpenRouter (EU endpoint)] --> [Mistral AI, UE, ZDR]
      |                                            (chat, moderazione input/output, trascrizione Voxtral)
-     +-- TTS locale (speechSynthesis, solo voci localService) - nessun dato esce dal dispositivo
+     +-- TTS: Google Cloud Text-to-Speech, endpoint UE (solo testo da leggere: risposte del bot e frasi dei giochi);
+     |   riserva locale speechSynthesis con sole voci localService
 [Email provider ⚠️] <-- notifiche/magic link al genitore
 ```
 Elenco completo dei trattamenti: `ropa.md`. Fornitori: `subprocessors.md`.

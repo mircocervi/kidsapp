@@ -14,7 +14,8 @@
 | Mistral AI SAS | Sub-responsabile (di OpenRouter) oppure responsabile diretto, se si passa all'API Mistral senza gateway | Inferenza LLM, trascrizione vocale (Voxtral), moderazione. |
 | Fornitore email transazionale (magic link) | Responsabile (art. 28) | ⚠️ DA VERIFICARE / DA DECIDERE: non ancora scelto. Il server SMTP predefinito di Supabase non è adatto alla produzione. Va scelto un fornitore UE o con DPA + SCC. |
 | Google LLC / Google Ireland, Apple Inc. / Apple Distribution International | **Titolari autonomi** del login social del genitore | Non sono responsabili: il genitore usa il proprio account Google/Apple. Riceviamo solo gli identificativi minimi (email, ID dell'account). Va citato nell'informativa. |
-| Browser/sistema operativo del dispositivo | Nessuno (trattamento locale) | Sintesi vocale `speechSynthesis` sul dispositivo. Vedi la nota tecnica al §4. |
+| Google Cloud Text-to-Speech (progetto GCP `wondimo`, endpoint `eu-texttospeech.googleapis.com`) | Responsabile (Google Cloud DPA / CDPA) ⚠️ DA VERIFICARE entità contraente e trasferimenti | Lettura ad alta voce (dal 04/10/2026): riceve solo il testo da leggere (risposte del bot già ripulite dai dati personali, frasi fisse dei giochi), mai il testo scritto dal bambino né identificativi. Nessuna conservazione da parte nostra; cache solo in memoria nel browser. |
+| Browser/sistema operativo del dispositivo | Nessuno (trattamento locale) | Riserva: se Google TTS non risponde, `speechSynthesis` con sole voci locali. Vedi la nota tecnica al §4. |
 
 ## 2. Tabella dei sub-responsabili
 

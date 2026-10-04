@@ -16,7 +16,7 @@ export function MascotPicker({ lang, childId, title, intro, current, onDone }: P
   function choose(id: string) {
     setSelected(id);
     const m = mascots.find((x) => x.id === id)!;
-    speak(fmt(intro, { mascot: m.name }), lang);
+    speak(fmt(intro, { mascot: m.name }), lang, m.id);
   }
 
   return (

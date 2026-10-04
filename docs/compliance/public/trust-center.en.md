@@ -18,7 +18,7 @@ Wondimo is a learning space for children from pre-school to the end of primary s
 | 🚫 **No AI training on your family's data** | Our AI providers run in zero data retention mode and do not train on children's conversations. |
 | 👨‍👩‍👧 **Parents in control** | Only parents have accounts. Parents see everything and can delete anything. |
 | 🧒 **Minimal data on children** | Nickname, avatar and age band. No birth date, surname, photo, email or phone number. |
-| 🎤 **Voice is never stored** | Speech is turned into text and deleted straight away. Read-aloud runs on the device. |
+| 🎤 **Voice is never stored** | Speech is turned into text and deleted straight away. For read-aloud we send Google Cloud (EU servers) only the text to be read — the mascot's answers and game prompts, never what the child writes — and we do not store it. |
 | 🗓️ **Chats deleted after 90 days** | Automatically, or sooner if a parent decides. |
 | 🇪🇺 **Data stored in the EU** | Database and application servers in Frankfurt, Germany. [⚠️ DA VERIFICARE AI routing region] |
 
