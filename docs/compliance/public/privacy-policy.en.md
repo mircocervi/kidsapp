@@ -1,10 +1,10 @@
 <!-- DRAFT v0.1 — 2026-10-04. Before publishing: resolve and remove all "⚠️ DA VERIFICARE" markers (= TO BE VERIFIED) and replace [..] placeholders. Audience: PARENTS. -->
 
-# Privacy Notice for Parents — [NOME APP]
+# Privacy Notice for Parents — Wondimo
 
 *Last updated: [DATE]*
 
-This notice explains in plain language what data we process when your child uses [NOME APP], why we process it, where it is stored and how you stay in control. There is also a **version for children** ([link]) you can read together.
+This notice explains in plain language what data we process when your child uses Wondimo, why we process it, where it is stored and how you stay in control. There is also a **version for children** ([link]) you can read together.
 
 ## At a glance
 - **Only you have an account.** Your children use *profiles* inside your account: a nickname, an avatar picked from a list, and their school year or age band. We **do not ask** for a child's date of birth, surname, photo, email or phone number.

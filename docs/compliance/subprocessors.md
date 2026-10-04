@@ -1,4 +1,4 @@
-# Responsabili e sub-responsabili del trattamento — [NOME APP]
+# Responsabili e sub-responsabili del trattamento — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026 — da rivedere a cura del titolare (Mirco Cervi, DPO di professione) prima del go-live.
 > Le verifiche documentali sono state fatte il 04/10/2026 sulle pagine pubbliche dei fornitori (vedi `sources.md`). Le condizioni contrattuali cambiano spesso: ogni riga va ri-verificata alla firma e poi almeno ogni 6 mesi.

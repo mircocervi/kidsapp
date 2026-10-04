@@ -1,4 +1,4 @@
-# Safety policy del chatbot — [NOME APP]
+# Safety policy del chatbot — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026. Documento normativo interno: i prompt di sistema, i filtri di moderazione e i test **devono** essere coerenti con questa policy. Ogni modifica va versionata (git) e annotata nel changelog in fondo.
 > ⚠️ DA VERIFICARE: farla rivedere da un esperto di tutela dell'infanzia o da uno psicologo dell'età evolutiva prima del go-live.

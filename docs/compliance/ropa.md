@@ -1,4 +1,4 @@
-# Registro delle attività di trattamento (art. 30(1) GDPR) — [NOME APP]
+# Registro delle attività di trattamento (art. 30(1) GDPR) — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026. Da validare prima del go-live e da aggiornare a ogni modifica del servizio o dei fornitori.
 > Formato: una scheda per trattamento. Le basi giuridiche sono **proposte**: vanno confermate dal titolare (⚠️ DA VERIFICARE).

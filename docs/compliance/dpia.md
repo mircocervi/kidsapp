@@ -1,4 +1,4 @@
-# Valutazione d'impatto sulla protezione dei dati (DPIA, art. 35 GDPR) — [NOME APP]
+# Valutazione d'impatto sulla protezione dei dati (DPIA, art. 35 GDPR) — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026 — redatta prima dello sviluppo (privacy by design). Va rivista: (1) prima del go-live, (2) a ogni modifica sostanziale (nuovo fornitore, nuovo modello, nuovo mercato, ingresso delle scuole come clienti), (3) almeno una volta l'anno.
 > Metodologia: Linee guida WP248 rev.01 (EDPB), elenco dei trattamenti soggetti a DPIA del Garante (provv. 467/2018), ICO Age Appropriate Design Code (standard 2). Scala di rischio: probabilità (1-4) × gravità (1-4).

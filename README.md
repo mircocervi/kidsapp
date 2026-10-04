@@ -1,6 +1,6 @@
-# kidsapp (nome provvisorio)
+# Wondimo
 
-PWA educativa per bambini da 3 a 13 anni: giochi per livello (infanzia → quinta elementare) e un amico AI che risponde alle domande con guardrail per età. Il genitore crea la famiglia, sceglie le impostazioni e vede tutto. Si installa dalla schermata Home di iPad, iPhone e Android: niente app store.
+**wondimo.com** — PWA educativa per bambini da 3 a 13 anni: giochi per livello (infanzia → quinta elementare) e un amico AI che risponde alle domande con guardrail per età. Il genitore crea la famiglia, sceglie le impostazioni e vede tutto. Si installa dalla schermata Home di iPad, iPhone e Android: niente app store.
 
 Privacy e AI Act fin dal progetto: vedi [docs/compliance](docs/compliance/README.md).
 

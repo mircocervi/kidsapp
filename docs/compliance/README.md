@@ -1,4 +1,4 @@
-# Documentazione di compliance — [NOME APP]
+# Documentazione di compliance — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026 — redatta in fase di progettazione (privacy & safety by design). **Nessun documento è definitivo** finché il titolare (Mirco Cervi) non lo rivede e risolve tutti i punti marcati **⚠️ DA VERIFICARE / DA DECIDERE**.
 > Ricerca normativa aggiornata al 04/10/2026 (AI Omnibus in vigore dal 27/07/2026; COPPA modificata applicabile dal 22/04/2026; L. 132/2025 in vigore dal 10/10/2025). Fonti in `sources.md`.

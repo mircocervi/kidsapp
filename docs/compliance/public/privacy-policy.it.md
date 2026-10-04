@@ -1,10 +1,10 @@
 <!-- BOZZA v0.1 — 04/10/2026. Prima della pubblicazione: risolvere e rimuovere tutti i marcatori "⚠️ DA VERIFICARE", sostituire i segnaposto [..]. Testo rivolto ai GENITORI. -->
 
-# Informativa privacy per i genitori — [NOME APP]
+# Informativa privacy per i genitori — Wondimo
 
 *Ultimo aggiornamento: [DATA]*
 
-Questa informativa spiega in modo semplice quali dati trattiamo quando tuo figlio o tua figlia usa [NOME APP], perché li trattiamo, dove sono conservati e come puoi controllarli. Abbiamo preparato anche una **versione per bambini** ([link]) da leggere insieme.
+Questa informativa spiega in modo semplice quali dati trattiamo quando tuo figlio o tua figlia usa Wondimo, perché li trattiamo, dove sono conservati e come puoi controllarli. Abbiamo preparato anche una **versione per bambini** ([link]) da leggere insieme.
 
 ## In breve
 - **Solo tu hai un account.** I tuoi figli usano dei *profili* dentro il tuo account: un soprannome, un avatar scelto da una lista e la classe o fascia d'età. **Non chiediamo** data di nascita, cognome, foto, email o telefono dei bambini.

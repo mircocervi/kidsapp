@@ -2,7 +2,7 @@
 # https://supabase.com/docs/guides/local-development/cli/config
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "kidsapp"
+project_id = "wondimo"
 
 [api]
 enabled = true
@@ -245,11 +245,11 @@ otp_expiry = 3600
 # sender_name = "Admin"
 
 [auth.email.template.magic_link]
-subject = "Your sign-in code · Il tuo codice di accesso"
+subject = "Wondimo — your sign-in code · il tuo codice"
 content_path = "./supabase/templates/magic_link.html"
 
 [auth.email.template.confirmation]
-subject = "Your sign-in code · Il tuo codice di accesso"
+subject = "Wondimo — your sign-in code · il tuo codice"
 content_path = "./supabase/templates/confirmation.html"
 
 # Uncomment to customize email template
@@ -285,9 +285,10 @@ max_frequency = "5s"
 # inactivity_timeout = "8h"
 
 # This hook runs before a new user is created and allows developers to reject the request based on the incoming user object.
-# [auth.hook.before_user_created]
-# enabled = true
-# uri = "pg-functions://postgres/auth/before-user-created-hook"
+# Beta privata: solo email in public.beta_invites (vedi migrazione beta_invites).
+[auth.hook.before_user_created]
+enabled = true
+uri = "pg-functions://postgres/public/hook_before_user_created"
 
 # This hook runs before a token is issued and allows you to add additional claims based on the authentication method used.
 # [auth.hook.custom_access_token]

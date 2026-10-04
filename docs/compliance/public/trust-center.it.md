@@ -1,10 +1,10 @@
 <!-- BOZZA v0.1 — 04/10/2026. Pagina pubblica "Fiducia e sicurezza" per genitori, scuole e autorità. Regola: ogni affermazione deve essere VERA al momento della pubblicazione. Risolvere prima tutti i marcatori "⚠️ DA VERIFICARE". Mai dichiarare certificazioni, audit o bollini che non abbiamo. -->
 
-# Fiducia e sicurezza in [NOME APP]
+# Fiducia e sicurezza in Wondimo
 
 *Ultima revisione: [DATA]*
 
-[NOME APP] è uno spazio di apprendimento per bambini dalla scuola dell'infanzia alla 5ª primaria, con giochi educativi e un assistente IA che aiuta con domande e compiti. In questa pagina spieghiamo in modo trasparente come proteggiamo i bambini: quali dati usiamo, dove sono, chi li vede, come rendiamo sicura l'IA e quali regole seguiamo.
+Wondimo è uno spazio di apprendimento per bambini dalla scuola dell'infanzia alla 5ª primaria, con giochi educativi e un assistente IA che aiuta con domande e compiti. In questa pagina spieghiamo in modo trasparente come proteggiamo i bambini: quali dati usiamo, dove sono, chi li vede, come rendiamo sicura l'IA e quali regole seguiamo.
 
 ---
 
@@ -121,4 +121,4 @@ Descriviamo come ci **allineiamo** a queste normative. **Non abbiamo certificazi
 - Titolare: Mirco Cervi, Italia [⚠️ DA VERIFICARE se si passa a una società]
 - Autorità di controllo: Garante per la protezione dei dati personali, oppure l'autorità del tuo paese (ICO nel Regno Unito, IFPDT in Svizzera).
 
-*Scuole e organizzazioni:* oggi [NOME APP] è un servizio per le famiglie. Se vi interessa usarlo in classe, contattateci prima: l'uso scolastico richiede valutazioni aggiuntive. [⚠️ vedi ai-act.md V3]
+*Scuole e organizzazioni:* oggi Wondimo è un servizio per le famiglie. Se vi interessa usarlo in classe, contattateci prima: l'uso scolastico richiede valutazioni aggiuntive. [⚠️ vedi ai-act.md V3]

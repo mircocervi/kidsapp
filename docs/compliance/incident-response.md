@@ -1,4 +1,4 @@
-# Procedura di gestione degli incidenti — [NOME APP]
+# Procedura di gestione degli incidenti — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026.
 > Parte A: violazioni dei dati personali (artt. 33-34 GDPR; UK GDPR; art. 24 nLPD).
@@ -16,7 +16,7 @@
 ## Parte A — Violazione dei dati personali
 
 ### A.1 Cos'è
-Qualunque violazione della sicurezza che comporta, accidentalmente o in modo illecito, distruzione, perdita, modifica, divulgazione non autorizzata o accesso a dati personali (art. 4(12)). Esempi per [NOME APP]:
+Qualunque violazione della sicurezza che comporta, accidentalmente o in modo illecito, distruzione, perdita, modifica, divulgazione non autorizzata o accesso a dati personali (art. 4(12)). Esempi per Wondimo:
 - errore RLS che mostra la chat di un bambino a un altro genitore;
 - chiave API di Supabase o OpenRouter esposta;
 - logging accidentale dei prompt presso un fornitore (es. ZDR disattivata, fallback a un provider non ZDR);

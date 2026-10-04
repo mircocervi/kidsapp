@@ -1,4 +1,4 @@
-# Analisi competitor — kidsapp
+# Analisi competitor — Wondimo
 
 > Ricerca desk del 04/10/2026. Fonti citate inline. Dove un dato viene da aggregatori o recensioni di terzi (non dal sito ufficiale) è indicato. Prezzi in USD salvo diversa indicazione; i prezzi in-app variano per paese e store, per l'Italia vanno verificati sul campo.
 

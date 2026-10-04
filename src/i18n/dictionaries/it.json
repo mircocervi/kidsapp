@@ -80,7 +80,8 @@
     "verify": "Accedi",
     "invalid": "Il codice non è corretto o è scaduto.",
     "changeEmail": "Usa un'altra email",
-    "adultsOnly": "Quest'area è riservata a genitori e tutori."
+    "adultsOnly": "Quest'area è riservata a genitori e tutori.",
+    "inviteOnly": "Wondimo è in beta privata: per ora si entra solo su invito. Chiedici un invito!"
   },
   "onboarding": {
     "consentTitle": "Prima di iniziare",

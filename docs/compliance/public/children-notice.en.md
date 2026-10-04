@@ -1,8 +1,8 @@
 <!-- DRAFT v0.1 — 2026-10-04. Reading level: ages 6-10. For the youngest (3-5) the mascot reads a short version aloud (see the end). Test with real children before publishing (⚠️ DA VERIFICARE). Add mascot illustrations. Helpline numbers must be localised per country. -->
 
-# How [NOME APP] works, explained for you!
+# How Wondimo works, explained for you!
 
-Hi! This page tells you what happens when you play and talk with [NOME APP]. Read it with your mum, dad or a grown-up you trust.
+Hi! This page tells you what happens when you play and talk with Wondimo. Read it with your mum, dad or a grown-up you trust.
 
 ## 🤖 Your mascot is a robot program
 Your mascot is a **computer program**. It's called "artificial intelligence" (AI).

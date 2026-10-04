@@ -1,4 +1,4 @@
-# Conservazione, cancellazione e diritti degli interessati — [NOME APP]
+# Conservazione, cancellazione e diritti degli interessati — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026. I tempi marcati ⚠️ sono proposte da confermare.
 

@@ -1,8 +1,8 @@
 <!-- BOZZA v0.1 — 04/10/2026. Livello di lettura: 6-10 anni. Per i più piccoli (3-5) la mascotte legge una versione breve ad alta voce (vedi in fondo). Da testare con bambini veri prima della pubblicazione (⚠️ DA VERIFICARE). Aggiungere illustrazioni della mascotte. -->
 
-# Come funziona [NOME APP] — spiegato per te!
+# Come funziona Wondimo — spiegato per te!
 
-Ciao! Qui ti spieghiamo cosa succede quando giochi e parli con [NOME APP]. Leggilo con la mamma, il papà o un adulto di fiducia.
+Ciao! Qui ti spieghiamo cosa succede quando giochi e parli con Wondimo. Leggilo con la mamma, il papà o un adulto di fiducia.
 
 ## 🤖 La tua mascotte è un robot-programma
 La tua mascotte è un **programma per computer**. Si chiama "intelligenza artificiale".

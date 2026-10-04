@@ -1,4 +1,4 @@
-# Valutazione AI Act (Reg. UE 2024/1689, come modificato dal Reg. UE 2026/1744 "AI Omnibus") — [NOME APP]
+# Valutazione AI Act (Reg. UE 2024/1689, come modificato dal Reg. UE 2026/1744 "AI Omnibus") — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026. Base normativa verificata alla data: l'AI Omnibus (Reg. 2026/1744) è stato pubblicato in GUUE il 24/07/2026 ed è in vigore dal 27/07/2026. Le linee guida della Commissione sulla classificazione dei sistemi ad alto rischio (art. 6) erano ancora **in bozza** (pubblicate il 19/05/2026, consultazione chiusa il 23/06/2026). ⚠️ DA VERIFICARE: la versione finale al momento del go-live.
 
@@ -8,8 +8,8 @@
 |---|---|---|
 | Art. 5 (pratiche vietate) | 02/02/2025 | Non toccato dall'Omnibus |
 | Art. 4 (alfabetizzazione IA) | 02/02/2025 | Riformulato dall'Omnibus: obbligo di "adottare misure per sostenere" l'alfabetizzazione, non più di "garantire un livello sufficiente". ⚠️ DA VERIFICARE nel testo consolidato |
-| Obblighi per i modelli GPAI (artt. 53-55) | 02/08/2025 (poteri di enforcement dal 02/08/2026) | Ricadono su Mistral, non su [NOME APP] |
-| Art. 50 (trasparenza) | 02/08/2026 | Proroga solo per l'art. 50(2) (marcatura leggibile da macchina) al **02/12/2026**, e solo per i sistemi immessi sul mercato **prima** del 02/08/2026. [NOME APP] sarà immessa dopo, quindi niente proroga: art. 50(2) applicabile da subito |
+| Obblighi per i modelli GPAI (artt. 53-55) | 02/08/2025 (poteri di enforcement dal 02/08/2026) | Ricadono su Mistral, non su Wondimo |
+| Art. 50 (trasparenza) | 02/08/2026 | Proroga solo per l'art. 50(2) (marcatura leggibile da macchina) al **02/12/2026**, e solo per i sistemi immessi sul mercato **prima** del 02/08/2026. Wondimo sarà immessa dopo, quindi niente proroga: art. 50(2) applicabile da subito |
 | Alto rischio Annex III (incl. istruzione) | **02/12/2027** (era 02/08/2026) | Rinviato dall'Omnibus |
 | Alto rischio Annex I (prodotti) | 02/08/2028 | Non pertinente |
 
@@ -19,7 +19,7 @@ Normativa italiana collegata: **L. 23/09/2025 n. 132** (legge sull'IA), in vigor
 
 | Ruolo AI Act | Applicabile? | Motivazione |
 |---|---|---|
-| **Fornitore (provider) di un sistema di IA** (art. 3(3)) | **Sì** | Sviluppa un sistema di IA (chatbot con prompt di sistema, moderazione, logica d'età, integrazione vocale) basato su un modello GPAI di terzi e lo immette sul mercato / mette in servizio con il proprio nome ([NOME APP]). È un "downstream provider" (art. 3(68)) |
+| **Fornitore (provider) di un sistema di IA** (art. 3(3)) | **Sì** | Sviluppa un sistema di IA (chatbot con prompt di sistema, moderazione, logica d'età, integrazione vocale) basato su un modello GPAI di terzi e lo immette sul mercato / mette in servizio con il proprio nome (Wondimo). È un "downstream provider" (art. 3(68)) |
 | **Deployer** (art. 3(4)) | Sì, in via accessoria | Usa il sistema sotto la propria autorità per erogare il servizio. I genitori e i bambini **non** sono deployer: uso personale non professionale |
 | Fornitore di modello GPAI | **No** | Non addestra né modifica in modo sostanziale il modello (solo prompting, nessun fine-tuning). ⚠️ DA VERIFICARE se in futuro si fa fine-tuning: le linee guida GPAI della Commissione (luglio 2025) fissano una soglia di compute per la "modifica sostanziale" |
 | Importatore/distributore | No | |
@@ -47,7 +47,7 @@ L'Allegato III, punto 3 (istruzione e formazione professionale) elenca:
 - (c) sistemi per valutare il **livello di istruzione adeguato** che una persona riceverà o a cui potrà accedere, nel contesto/all'interno di istituti di istruzione;
 - (d) sistemi per **monitorare e rilevare comportamenti vietati durante le prove**.
 
-**Analisi.** Il punto 3 si riferisce a sistemi usati da o per istituti di istruzione, con effetti sul percorso educativo della persona (ammissione, voto, livello di istruzione, sorveglianza degli esami). [NOME APP] è un servizio consumer usato a casa per scelta del genitore. I livelli dei giochi e i progressi:
+**Analisi.** Il punto 3 si riferisce a sistemi usati da o per istituti di istruzione, con effetti sul percorso educativo della persona (ammissione, voto, livello di istruzione, sorveglianza degli esami). Wondimo è un servizio consumer usato a casa per scelta del genitore. I livelli dei giochi e i progressi:
 - non determinano l'accesso a un percorso di istruzione formale;
 - non producono valutazioni che entrano nel percorso scolastico;
 - non assegnano un livello di istruzione;
@@ -77,7 +77,7 @@ Le bozze delle linee guida della Commissione (maggio 2026) portano un esempio ut
 
 ## 4. Obblighi di trasparenza (art. 50)
 
-| Obbligo | Applicazione in [NOME APP] |
+| Obbligo | Applicazione in Wondimo |
 |---|---|
 | 50(1): informare le persone fisiche che interagiscono con un sistema di IA (salvo che sia ovvio) | Per i bambini **non è mai "ovvio"**. Misure: (a) all'inizio di ogni chat la mascotte dice in linguaggio adatto all'età: "Sono [mascotte], un programma per computer (un'intelligenza artificiale). Non sono una persona."; (b) icona/etichetta "IA" sempre visibile nell'interfaccia della chat; (c) in modalità vocale l'annuncio è anche parlato; (d) informativa per i bambini e per i genitori. Il messaggio va ripetuto periodicamente (es. a ogni nuova sessione) |
 | 50(2): marcatura in formato leggibile da macchina dei contenuti sintetici (testo, audio, immagini, video) generati | Si applica ai fornitori di sistemi che generano contenuti sintetici, testo compreso. Misure proposte: metadati per ogni messaggio (`generator: "ai"`, modello, versione) nel DB e nell'HTML (es. attributo `data-ai-generated="true"` + meta tag della pagina), nell'export delle trascrizioni e nelle copie/condivisioni. ⚠️ DA VERIFICARE: soluzioni tecniche indicate dal **Codice di condotta della Commissione sulla marcatura e l'etichettatura** dei contenuti IA e dalle linee guida sull'art. 50 (stato da controllare al go-live). TTS on-device: l'audio è generato dal browser a partire da testo IA, quindi va etichettato nell'interfaccia |
@@ -116,7 +116,7 @@ Non è obbligatoria ex art. 14 (non è alto rischio), ma va adottata per la natu
 ## 10. Altre normative da tenere d'occhio
 | Norma | Rilevanza | Valutazione |
 |---|---|---|
-| DSA (Reg. 2022/2065) art. 28 + linee guida della Commissione sulla protezione dei minori (luglio 2025) | Si applica alle "piattaforme online" (diffusione al pubblico di contenuti degli utenti) | Probabilmente **non applicabile** (nessuna condivisione pubblica). [NOME APP] è un "servizio della società dell'informazione" / hosting minimo. Adottare comunque le linee guida come buona pratica. ⚠️ DA VERIFICARE |
+| DSA (Reg. 2022/2065) art. 28 + linee guida della Commissione sulla protezione dei minori (luglio 2025) | Si applica alle "piattaforme online" (diffusione al pubblico di contenuti degli utenti) | Probabilmente **non applicabile** (nessuna condivisione pubblica). Wondimo è un "servizio della società dell'informazione" / hosting minimo. Adottare comunque le linee guida come buona pratica. ⚠️ DA VERIFICARE |
 | UK Online Safety Act 2023 | Si applica ai chatbot che permettono di condividere contenuti tra utenti (user-to-user) o che cercano su più siti o database (search services), secondo la lettera aperta Ofcom dell'08/11/2024 | **Fuori ambito** se il chatbot non condivide contenuti tra utenti e non fa ricerche web live. Vincolo: niente ricerca web live senza una nuova valutazione OSA. ⚠️ DA VERIFICARE |
 | Cyber Resilience Act (Reg. 2024/2847) | Prodotti con elementi digitali | Un SaaS puro tende a esserne fuori, ma una PWA installabile potrebbe rientrarvi. ⚠️ DA VERIFICARE (obblighi principali dall'11/12/2027, segnalazione delle vulnerabilità dall'11/09/2026) |
 | Direttiva 2005/29 (pratiche commerciali sleali) / Codice del consumo | Freemium verso famiglie | Nessun invito all'acquisto rivolto ai bambini (vedi art. 5(1)(b)) |

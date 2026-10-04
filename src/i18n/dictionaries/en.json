@@ -80,7 +80,8 @@
     "verify": "Sign in",
     "invalid": "That code doesn't look right, or it expired.",
     "changeEmail": "Use a different email",
-    "adultsOnly": "This area is for parents and legal guardians only."
+    "adultsOnly": "This area is for parents and legal guardians only.",
+    "inviteOnly": "Wondimo is in private beta: access is by invitation only for now. Ask us for an invite!"
   },
   "onboarding": {
     "consentTitle": "Before we start",

@@ -10,7 +10,7 @@ export function isLocale(value: string): value is Locale {
 const envDefault = process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? "en";
 export const defaultLocale: Locale = isLocale(envDefault) ? envDefault : "en";
 
-export const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Kidsapp";
+export const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Wondimo";
 
 // Versione dell'informativa privacy: cambiarla obbliga il genitore a riaccettarla.
 export const consentVersion = "2026-10-04";

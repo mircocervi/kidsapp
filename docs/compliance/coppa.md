@@ -1,4 +1,4 @@
-# Prontezza per gli USA — COPPA e normative statali — [NOME APP]
+# Prontezza per gli USA — COPPA e normative statali — Wondimo
 
 > Stato: BOZZA v0.1 — 04/10/2026. Il lancio USA è **successivo** a UE/CH/UK. Questo documento esiste per non dimenticare cosa va cambiato **prima** di aprire il servizio a utenti USA.
 > **Fino ad allora: geo-blocco o esclusione esplicita degli utenti USA** (paese dichiarato all'iscrizione + controllo IP soft). ⚠️ DA DECIDERE.
@@ -6,7 +6,7 @@
 
 ## 1. Applicabilità
 - **COPPA** (15 U.S.C. §§ 6501-6506) e **COPPA Rule** (16 C.F.R. Part 312) si applicano agli operatori di siti/servizi online **diretti ai minori di 13 anni** che raccolgono informazioni personali da bambini negli USA, anche se l'operatore è straniero.
-- [NOME APP] è **"directed to children"** per contenuto, target e mascotte: COPPA si applica pienamente. Non può usare il modello "mixed audience" né l'age-screening per escludere i bambini.
+- Wondimo è **"directed to children"** per contenuto, target e mascotte: COPPA si applica pienamente. Non può usare il modello "mixed audience" né l'age-screening per escludere i bambini.
 - **Cos'è "personal information"** per COPPA (come modificata nel 2025): comprende identificativi persistenti (cookie, ID dispositivo, ID profilo), **file audio con la voce del bambino**, foto/video, dati biometrici (anche voiceprint), testo libero che contiene dati identificativi. Anche nickname + ID persistente rientrano.
 
 ## 2. Regola modificata del 2025 — date

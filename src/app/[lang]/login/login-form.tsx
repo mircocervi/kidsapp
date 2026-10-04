@@ -27,7 +27,7 @@ export function LoginForm({ lang, t, errorText }: { lang: string; t: Dictionary[
       },
     });
     setBusy(false);
-    if (error) setError(errorText);
+    if (error) setError(error.message.includes("beta_invite_required") ? t.inviteOnly : errorText);
     else setStep("code");
   }
 

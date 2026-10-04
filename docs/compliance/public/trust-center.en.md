@@ -1,10 +1,10 @@
 <!-- DRAFT v0.1 — 2026-10-04. Public "Trust & Safety" page for parents, schools and regulators. Rule: every statement must be TRUE at publication. Resolve all "⚠️ DA VERIFICARE" (= TO BE VERIFIED) markers first. Never claim certifications, audits or seals we do not hold. -->
 
-# Trust & Safety at [NOME APP]
+# Trust & Safety at Wondimo
 
 *Last reviewed: [DATE]*
 
-[NOME APP] is a learning space for children from pre-school to the end of primary school, with educational games and an AI assistant that helps with questions and homework. This page explains openly how we protect children: what data we use, where it lives, who can see it, how the AI is kept safe, and which rules we follow.
+Wondimo is a learning space for children from pre-school to the end of primary school, with educational games and an AI assistant that helps with questions and homework. This page explains openly how we protect children: what data we use, where it lives, who can see it, how the AI is kept safe, and which rules we follow.
 
 ---
 
@@ -121,4 +121,4 @@ We describe how we **align** with these frameworks. **We do not hold any certifi
 - Controller: Mirco Cervi, Italy [⚠️ DA VERIFICARE if moved to a company]
 - Supervisory authorities: Garante per la protezione dei dati personali (Italy), ICO (UK), FDPIC (Switzerland), or the authority in your country.
 
-*Schools and organisations:* [NOME APP] is currently a service for families. If you are interested in classroom use, please contact us first: school use requires additional assessments. [⚠️ see ai-act.md V3]
+*Schools and organisations:* Wondimo is currently a service for families. If you are interested in classroom use, please contact us first: school use requires additional assessments. [⚠️ see ai-act.md V3]
