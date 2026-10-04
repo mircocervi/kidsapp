@@ -3,13 +3,14 @@ import "server-only";
 /**
  * Unico punto di uscita verso i modelli. Ogni richiesta è vincolata a:
  * - endpoint zero-data-retention (zdr) e senza raccolta dati per training (data_collection: deny);
- * - solo il provider Mistral AI (UE), senza fallback verso altri provider.
+ * - solo l'endpoint UE di Mistral AI ("mistral/eu"; Mistral espone anche endpoint "mistral/us"),
+ *   senza fallback verso altri provider o regioni.
  * Nessun identificativo del genitore o del bambino viene inviato al provider.
  */
 export const EU_ZDR_ROUTING = {
   zdr: true,
   data_collection: "deny",
-  only: ["mistral"],
+  only: ["mistral/eu"],
   allow_fallbacks: false,
 } as const;
 

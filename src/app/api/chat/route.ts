@@ -29,7 +29,7 @@ export async function POST(request: Request) {
   // Letture con la sessione del genitore: la RLS garantisce che il bambino sia suo.
   const { supabase, user } = session;
   const [{ data: child }, { data: parent }] = await Promise.all([
-    supabase.from("children").select("id, nickname, grade, mascot, locale, chat_enabled").eq("id", childId).maybeSingle(),
+    supabase.from("children").select("id, grade, mascot, locale, chat_enabled").eq("id", childId).maybeSingle(),
     supabase.from("parents").select("locale, country, chat_mode, consent_at").eq("id", user.id).maybeSingle(),
   ]);
   if (!child || !parent) return NextResponse.json({ error: "not_found" }, { status: 404 });
@@ -69,7 +69,11 @@ export async function POST(request: Request) {
 
   if (category) {
     const urgent = category === "self_harm" || category === "abuse";
-    const severity = urgent ? "urgent" : ESCALATE.includes(category) || (!verdict.safe && verdict.severity === "high") ? "warning" : "info";
+    const severity = urgent
+      ? "urgent"
+      : category !== "personal_info" && (ESCALATE.includes(category) || (!verdict.safe && verdict.severity === "high"))
+        ? "warning"
+        : "info";
     await admin.from("safety_alerts").insert({
       parent_id: user.id, child_id: childId, message_id: childMsg?.id ?? null, category, severity,
     });
@@ -79,7 +83,9 @@ export async function POST(request: Request) {
   let model: string | null = null;
   let flaggedReply = false;
 
-  const blocked = !verdict.safe && (ESCALATE.includes(verdict.category) || verdict.severity === "high");
+  // I dati personali non bloccano la conversazione: sono già stati rimossi e il bot ricorda la privacy.
+  const blocked =
+    !verdict.safe && verdict.category !== "personal_info" && (ESCALATE.includes(verdict.category) || verdict.severity === "high");
   if (blocked) {
     reply = safeReply(verdict.category, locale, parent.country);
   } else {
@@ -98,7 +104,6 @@ export async function POST(request: Request) {
         content: systemPrompt({
           mascotName: mascot.name,
           mascotTrait: mascot.trait,
-          nickname: child.nickname,
           band: bandOf(child.grade),
           mode: parent.chat_mode,
           locale,
@@ -115,7 +120,8 @@ export async function POST(request: Request) {
       const result = await complete({ model: MODELS.chat, messages, maxTokens: 500 });
       model = result.model;
       const check = await classify(result.content, "answer");
-      if (check.safe) {
+      // Sulla risposta "personal_info" scatta solo perché il bot ricorda la privacy: non è un rischio.
+      if (check.safe || ("category" in check && check.category === "personal_info")) {
         reply = result.content;
       } else {
         flaggedReply = true;
@@ -124,7 +130,7 @@ export async function POST(request: Request) {
     } catch {
       reply = safeReply("unavailable", locale);
     }
-    if (found.length > 0) reply = `${privacyNote(locale)}\n\n${reply}`;
+    if (category === "personal_info") reply = `${privacyNote(locale)}\n\n${reply}`;
   }
 
   await admin.from("chat_messages").insert({

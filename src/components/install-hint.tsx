@@ -1,22 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import type { Dictionary } from "@/i18n";
 
 type BeforeInstallPrompt = Event & { prompt: () => Promise<void> };
+type Platform = "ios" | "android" | "other";
+
+const noSubscribe = () => () => {};
+
+function detectPlatform(): Platform {
+  const ua = navigator.userAgent;
+  // iPadOS si presenta come Mac: lo riconosciamo dal touch.
+  if (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
+  return /Android/.test(ua) ? "android" : "other";
+}
 
 /** Istruzioni per aggiungere l'app alla Home; su Android/Chrome usa il prompt nativo. */
 export function InstallHint({ t }: { t: Dictionary["install"] }) {
-  const [platform, setPlatform] = useState<"ios" | "android" | "other">("other");
-  const [installed, setInstalled] = useState(false);
+  const platform = useSyncExternalStore<Platform>(noSubscribe, detectPlatform, () => "other");
+  const installed = useSyncExternalStore(
+    noSubscribe,
+    () => window.matchMedia("(display-mode: standalone)").matches,
+    () => false,
+  );
   const [prompt, setPrompt] = useState<BeforeInstallPrompt | null>(null);
 
   useEffect(() => {
-    const ua = navigator.userAgent;
-    // iPadOS si presenta come Mac: lo riconosciamo dal touch.
-    const ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-    setPlatform(ios ? "ios" : /Android/.test(ua) ? "android" : "other");
-    setInstalled(window.matchMedia("(display-mode: standalone)").matches);
     const onPrompt = (e: Event) => {
       e.preventDefault();
       setPrompt(e as BeforeInstallPrompt);

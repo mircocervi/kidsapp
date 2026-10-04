@@ -24,16 +24,41 @@
     "login": "Accedi",
     "featuresTitle": "Perché piace alle famiglie",
     "features": [
-      { "icon": "💬", "title": "Un amico, non un motore di ricerca", "text": "Tuo figlio sceglie la sua mascotte e chiede quello che vuole. Le risposte sono adatte alla sua età e lo aiutano a ragionare, non a copiare." },
-      { "icon": "🎮", "title": "Giochi che crescono con loro", "text": "Contare, lettere, matematica, scienze e inglese, dall'infanzia alla quinta elementare." },
-      { "icon": "👀", "title": "I genitori vedono tutto", "text": "Ogni domanda, ogni risposta, i progressi e il tempo. Avvisi immediati se qualcosa ci preoccupa." },
-      { "icon": "🛡️", "title": "Sicuro e riservato per progetto", "text": "Niente pubblicità, niente tracciamento, nessun account per i bambini. AI ospitata in UE che non conserva le parole di tuo figlio e non impara da esse." }
+      {
+        "icon": "💬",
+        "title": "Un amico, non un motore di ricerca",
+        "text": "Tuo figlio sceglie la sua mascotte e chiede quello che vuole. Le risposte sono adatte alla sua età e lo aiutano a ragionare, non a copiare."
+      },
+      {
+        "icon": "🎮",
+        "title": "Giochi che crescono con loro",
+        "text": "Contare, lettere, matematica, scienze e inglese, dall'infanzia alla quinta elementare."
+      },
+      {
+        "icon": "👀",
+        "title": "I genitori vedono tutto",
+        "text": "Ogni domanda, ogni risposta, i progressi e il tempo. Avvisi immediati se qualcosa ci preoccupa."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Sicuro e riservato per progetto",
+        "text": "Niente pubblicità, niente tracciamento, nessun account per i bambini. AI ospitata in UE che non conserva le parole di tuo figlio e non impara da esse."
+      }
     ],
     "howTitle": "Pronto in 2 minuti",
     "how": [
-      { "title": "Crea il tuo spazio genitore", "text": "Basta la tua email. Nessuna password da ricordare." },
-      { "title": "Aggiungi i tuoi figli", "text": "Un soprannome, la classe e un avatar simpatico. Nient'altro." },
-      { "title": "Consegna il dispositivo", "text": "Aggiungila alla schermata Home di iPad o telefono: si apre come un'app." }
+      {
+        "title": "Crea il tuo spazio genitore",
+        "text": "Basta la tua email. Nessuna password da ricordare."
+      },
+      {
+        "title": "Aggiungi i tuoi figli",
+        "text": "Un soprannome, la classe e un avatar simpatico. Nient'altro."
+      },
+      {
+        "title": "Consegna il dispositivo",
+        "text": "Aggiungila alla schermata Home di iPad o telefono: si apre come un'app."
+      }
     ],
     "safetyTitle": "Pensato per i bambini, con regole che non si piegano",
     "safety": [
@@ -63,6 +88,7 @@
     "adult": "Sono maggiorenne e sono genitore o tutore dei bambini che aggiungerò.",
     "privacy": "Ho letto l'informativa privacy e le informazioni sull'uso dell'intelligenza artificiale.",
     "childConsent": "Presto il consenso, per conto dei miei figli, al trattamento dei loro dati come descritto (soprannome, classe, risultati dei giochi, messaggi della chat conservati per 90 giorni e visibili a me).",
+    "aiConsent": "Autorizzo i miei figli, minori di 14 anni, a usare l'amico AI (un sistema di intelligenza artificiale), sapendo che posso leggere ogni conversazione e spegnere la chat in qualsiasi momento.",
     "readPrivacy": "Leggi l'informativa privacy",
     "country": "Paese",
     "pinTitle": "Crea il tuo PIN genitore",
@@ -128,7 +154,13 @@
     "score": "{correct} su {total}",
     "playAgain": "Gioca ancora",
     "backHome": "Home",
-    "subjects": { "math": "Matematica", "reading": "Lettere e parole", "science": "Scienze", "english": "Inglese", "logic": "Logica e memoria" }
+    "subjects": {
+      "math": "Matematica",
+      "reading": "Lettere e parole",
+      "science": "Scienze",
+      "english": "Inglese",
+      "logic": "Logica e memoria"
+    }
   },
   "parent": {
     "title": "Area genitori",

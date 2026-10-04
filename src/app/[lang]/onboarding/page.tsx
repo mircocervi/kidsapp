@@ -53,7 +53,7 @@ export default async function Onboarding({ params, searchParams }: PageProps<"/[
                 ))}
               </select>
             </label>
-            {(["adult", "privacy", "childConsent"] as const).map((k) => (
+            {(["adult", "privacy", "childConsent", "aiConsent"] as const).map((k) => (
               <label key={k} className="flex items-start gap-3 rounded-2xl bg-cream p-4">
                 <input type="checkbox" name={k} required className="mt-1 h-6 w-6 shrink-0 accent-brand" />
                 <span>{t.onboarding[k]}</span>

@@ -18,7 +18,8 @@ async function session(lang: string) {
 export async function acceptConsent(lang: string, form: FormData) {
   const { user } = await session(lang);
   const country = String(form.get("country") ?? "");
-  const ok = form.get("adult") === "on" && form.get("privacy") === "on" && form.get("childConsent") === "on";
+  // aiConsent: consenso del genitore all'uso di sistemi di IA da parte dei minori di 14 anni (L. 132/2025, art. 4 c. 4).
+  const ok = form.get("adult") === "on" && form.get("privacy") === "on" && form.get("childConsent") === "on" && form.get("aiConsent") === "on";
   if (!ok || !isLaunchCountry(country)) redirect(`/${lang}/onboarding?error=consent`);
   const now = new Date().toISOString();
   // Scrittura con service role: consenso e PIN non sono modificabili dal client.

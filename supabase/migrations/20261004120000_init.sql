@@ -176,6 +176,6 @@ select cron.schedule(
   $$
     delete from public.chat_messages where expires_at < now();
     delete from public.safety_alerts where expires_at < now();
-    delete from public.activity_results where created_at < now() - interval '24 months';
+    delete from public.activity_results where created_at < now() - interval '13 months';
   $$
 );

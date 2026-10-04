@@ -24,16 +24,41 @@
     "login": "Sign in",
     "featuresTitle": "Why families love it",
     "features": [
-      { "icon": "💬", "title": "A buddy, not a search engine", "text": "Your child chooses their mascot and asks anything. Answers are tuned to their age and guide them to think, not to copy." },
-      { "icon": "🎮", "title": "Games that grow with them", "text": "Counting, letters, maths, science and English, from preschool to 5th grade." },
-      { "icon": "👀", "title": "Parents see everything", "text": "Every question, every answer, progress and time. Instant alerts if something worries us." },
-      { "icon": "🛡️", "title": "Safe and private by design", "text": "No ads, no trackers, no child accounts. AI hosted in the EU that never keeps or learns from your child's words." }
+      {
+        "icon": "💬",
+        "title": "A buddy, not a search engine",
+        "text": "Your child chooses their mascot and asks anything. Answers are tuned to their age and guide them to think, not to copy."
+      },
+      {
+        "icon": "🎮",
+        "title": "Games that grow with them",
+        "text": "Counting, letters, maths, science and English, from preschool to 5th grade."
+      },
+      {
+        "icon": "👀",
+        "title": "Parents see everything",
+        "text": "Every question, every answer, progress and time. Instant alerts if something worries us."
+      },
+      {
+        "icon": "🛡️",
+        "title": "Safe and private by design",
+        "text": "No ads, no trackers, no child accounts. AI hosted in the EU that never keeps or learns from your child's words."
+      }
     ],
     "howTitle": "Ready in 2 minutes",
     "how": [
-      { "title": "Create your parent space", "text": "Just your email. No password to remember." },
-      { "title": "Add your children", "text": "A nickname, a school year and a cute avatar. Nothing else." },
-      { "title": "Hand over the device", "text": "Add it to the home screen of an iPad or phone: it opens like an app." }
+      {
+        "title": "Create your parent space",
+        "text": "Just your email. No password to remember."
+      },
+      {
+        "title": "Add your children",
+        "text": "A nickname, a school year and a cute avatar. Nothing else."
+      },
+      {
+        "title": "Hand over the device",
+        "text": "Add it to the home screen of an iPad or phone: it opens like an app."
+      }
     ],
     "safetyTitle": "Built for children, with rules that don't bend",
     "safety": [
@@ -63,6 +88,7 @@
     "adult": "I am an adult and a parent or legal guardian of the children I will add.",
     "privacy": "I have read the privacy notice and the information on how AI is used.",
     "childConsent": "I give consent, on behalf of my children, to the processing of their data as described (nickname, school year, game results, chat messages kept for 90 days and visible to me).",
+    "aiConsent": "I authorise my children, who are under 14, to use the AI buddy (an artificial intelligence system), knowing that I can read every conversation and turn the chat off at any time.",
     "readPrivacy": "Read the privacy notice",
     "country": "Country",
     "pinTitle": "Create your parent PIN",
@@ -128,7 +154,13 @@
     "score": "{correct} out of {total}",
     "playAgain": "Play again",
     "backHome": "Home",
-    "subjects": { "math": "Maths", "reading": "Letters & words", "science": "Science", "english": "English", "logic": "Logic & memory" }
+    "subjects": {
+      "math": "Maths",
+      "reading": "Letters & words",
+      "science": "Science",
+      "english": "English",
+      "logic": "Logic & memory"
+    }
   },
   "parent": {
     "title": "Parent area",

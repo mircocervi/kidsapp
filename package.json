@@ -6,7 +6,12 @@
     "dev": "next dev -p 5600",
     "build": "next build",
     "start": "next start -p 5600",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "db:start": "supabase start",
+    "db:types": "supabase gen types typescript --local > src/lib/supabase/database.types.ts",
+    "models:compare": "node --env-file=.env scripts/compare-models.mjs",
+    "icons": "node scripts/make-icons.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",
