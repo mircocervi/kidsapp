@@ -1,0 +1,19 @@
+# Dipendenze e build
+node_modules/
+dist/
+build/
+.next/
+
+# Ambiente
+.env
+.env.*
+!.env.example
+
+# Sistema / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Impostazioni locali di Claude Code
+.claude/settings.local.json
