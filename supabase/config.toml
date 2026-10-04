@@ -440,3 +440,7 @@ user = "b8a34c001@smtp-brevo.com"
 pass = "env(BREVO_SMTP_KEY)"
 admin_email = "noreply@wondimo.com"
 sender_name = "Wondimo"
+
+[remotes.production.auth.rate_limit]
+# Con SMTP proprio (Brevo) il limite non è più quello del servizio email di Supabase.
+email_sent = 30
