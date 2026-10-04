@@ -48,7 +48,7 @@ export async function classify(text: string, kind: "question" | "answer"): Promi
   }
   try {
     const { content } = await complete({
-      model: MODELS.guard,
+      models: MODELS.guard,
       json: true,
       temperature: 0,
       maxTokens: 40,

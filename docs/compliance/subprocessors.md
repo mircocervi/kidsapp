@@ -70,3 +70,24 @@ Il 04/10/2026, interrogando l'API pubblica `GET /api/v1/endpoints/zdr` di OpenRo
 2. Iscriversi alle notifiche di modifica dei sub-responsabili (Vercel: preavviso 5 gg; OpenRouter: 30 gg; Supabase: notifica via sottoscrizione).
 3. Revisione semestrale e dopo ogni modifica dei termini dei fornitori.
 4. Per i trasferimenti USA basati solo su SCC (Supabase, OpenRouter): TIA documentata. ⚠️ DA VERIFICARE.
+
+---
+
+## Modalità beta di test (dal 04/10/2026)
+
+Decisione del titolare: durante la beta di test si usano **solo OpenRouter e modelli gratuiti**, senza modello in self-hosting.
+
+| Ruolo | Modello (ordine di preferenza) | Provider / regione | Vincoli applicati a ogni chiamata |
+|---|---|---|---|
+| Risposte | `qwen/qwen3.8-27b:free` | ModelRun via OpenRouter, **extra-UE** ⚠️ DA VERIFICARE la sede | `zdr: true`, `data_collection: deny`, nessun fallback di provider |
+| Risposte (riserva se il free è saturo) | `mistralai/mistral-small-3.2-24b-instruct` | Mistral AI, endpoint `mistral/eu` | come sopra + `only: ["mistral/eu"]` |
+| Classificatore di sicurezza | `mistralai/ministral-8b-2512` | Mistral AI, endpoint `mistral/eu` | come sopra + `only: ["mistral/eu"]` |
+
+Configurazione: variabili `AI_CHAT_MODELS` e `AI_GUARD_MODELS` (vedi `src/lib/ai/openrouter.ts`).
+
+**Condizioni della beta (vincolanti):**
+- accesso solo su invito (`public.beta_invites`, hook `before_user_created`);
+- solo **dati di test** inseriti da adulti tester: nessun bambino reale finché non sono chiusi i blocchi su Mistral §2.2(c), OpenRouter (DPF, termini 18+) e trasferimenti extra-UE dei modelli free;
+- prima dell'apertura a bambini reali: scegliere un provider/self-hosting conforme e aggiornare RoPA, DPIA, ai-act.md e i testi pubblici.
+
+Nota tecnica: i modelli free hanno limiti di frequenza e latenze variabili (nei test del 04/10/2026: 2–13 s); il fallback su Mistral UE garantisce la risposta.

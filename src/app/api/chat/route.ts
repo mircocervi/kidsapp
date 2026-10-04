@@ -117,7 +117,7 @@ export async function POST(request: Request) {
     ];
 
     try {
-      const result = await complete({ model: MODELS.chat, messages, maxTokens: 500 });
+      const result = await complete({ models: MODELS.chat, messages, maxTokens: 500 });
       model = result.model;
       const check = await classify(result.content, "answer");
       // Sulla risposta "personal_info" scatta solo perché il bot ricorda la privacy: non è un rischio.

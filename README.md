@@ -8,7 +8,7 @@ Privacy e AI Act fin dal progetto: vedi [docs/compliance](docs/compliance/README
 
 - **Next.js 16** (App Router, TypeScript, Tailwind 4), porta **5600**
 - **Supabase** (Postgres + auth via codice OTP, RLS per famiglia); in locale porte 5610–5619
-- **AI** via OpenRouter, solo endpoint **Mistral UE zero-data-retention** (`src/lib/ai/openrouter.ts`)
+- **AI** via OpenRouter, solo endpoint zero-data-retention: in beta modelli free (Qwen) con riserva Mistral UE (`src/lib/ai/openrouter.ts`, env `AI_CHAT_MODELS` / `AI_GUARD_MODELS`)
 - Hosting previsto: Vercel (funzioni in UE) + Supabase UE
 
 ## Avvio in locale
