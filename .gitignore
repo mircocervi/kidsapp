@@ -26,3 +26,4 @@ build/
 next-env.d.ts
 .vercel
 *.pem
+.env*
