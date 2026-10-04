@@ -430,3 +430,13 @@ project_id = "cvdkpkhbechhqiolyxkq"
 [remotes.production.auth]
 site_url = "https://wondimo.com"
 additional_redirect_urls = ["https://wondimo.com/**", "https://www.wondimo.com/**", "https://*.vercel.app/**"]
+
+# Email di produzione via Brevo (UE). La chiave arriva da .env: BREVO_SMTP_KEY=... (mai in git).
+[remotes.production.auth.email.smtp]
+enabled = true
+host = "smtp-relay.brevo.com"
+port = 587
+user = "b8a34c001@smtp-brevo.com"
+pass = "env(BREVO_SMTP_KEY)"
+admin_email = "noreply@wondimo.com"
+sender_name = "Wondimo"
